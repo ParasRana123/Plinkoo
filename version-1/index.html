@@ -76,6 +76,62 @@
             sinks.push({ x, y, width, height });
         }
 
+        class Ball {
+            constructor(x , y , radius , color) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.color = color;
+                this.vx = 0;
+                this.vy = 0;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(unpad(this.x), unpad(this.y), this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            update() {
+                // this.vx += gravity  ==> No gravity in the x direction
+                this.vy += gravity;  // v = u + at
+                this.x += this.vx;  // x = x1 + v
+                this.y += this.vy;
+
+                // Collision of the balls with Obstacles
+                obstacles.forEach(obstacle => {
+                    const dist = Math.hypot(this.x - obstacle.x , y - obstacle.y);
+                    if(dist < pad(this.radius + obstacle.radius)) {
+                        // Calculate the collison angle
+                        const angle = Math.atan2(this.y - obstacle.y , this.x - obstacle.x);
+                        // Reflect velocity
+                        const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+                        this.vx = (Math.cos(angle) * speed * horizontalFriction);
+                        this.vy = (Math.sin(angle) * speed * verticalFriction);
+
+                        // Adjust positions to prevent sticking
+                        const overlap = this.radius + obstacle.radius - unpad(dist);
+                        this.x += pad(Math.cos(angle) * overlap);
+                        this.y += pad(Math.sin(angle) * overlap);
+                    }
+                });
+
+                // Collision with the sinks
+                sinks.forEach(sink => {
+                    if (
+                        unpad(this.x) > sink.x - sink.width / 2 &&
+                        unpad(this.x) < sink.x + sink.width / 2 &&
+                        unpad(this.y) + this.radius > sink.y - sink.height / 2
+                    ) {
+                        this.vx = 0;
+                        this.vy = 0;
+                    }
+                });
+            }
+        }
+
     </script>
 </body>
 </html>
