@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react"
-import { BallManager } from "../game/classes/BallManager";
+import { BallManager } from "../game/classes/ballManager";
 import axios from "axios";
 
 
 export function Game() {
     const [ballManager, setBallManager] = useState<BallManager>();
-    const canvasRef = useRef<any>();
+    const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
     useEffect(() => {
         if (canvasRef.current) {
