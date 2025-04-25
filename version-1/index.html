@@ -27,7 +27,7 @@
         const canvas = document.getElementById("gameCanvas");
         const ctx = canvas.getContext("2d");
 
-        const DECIMAL_MULTIPLIER = 1000;
+        const DECIMAL_MULTIPLIER = 10000;
 
         const WIDTH = 800;
         const HEIGHT = 800;
@@ -45,7 +45,37 @@
         function pad(n) {
             return n * DECIMAL_MULTIPLIER;
         }
-        
+
+        function unpad(n) {
+            return Math.floor(n / DECIMAL_MULTIPLIER);
+        }
+
+        // Creating obstacles in the pyramid shape
+        const rows = 16;
+        for(let row = 2 ; row < rows ; row++) {
+            const numObstacles = row + 1;
+            const y = 0 + row * 35;
+            const spacing = 36;
+            for(let col = 0 ; col < numObstacles ; col++) {
+                const x = WIDTH / 2 - spacing * (row / 2 - col);
+                // 800 / 2 - 36 * (2/2 - 0) = 400 - 36*1 = 364;
+                // 800 / 2 - 36 * (2/2 - 1) = 400 - 36*0 = 400;
+                // 800 / 2 - 36 * (2/2 - 2) = 400 + 36*1 = 436;
+                obstacles.push({ x: pad(x) , y: pad(y) , radius: obstacleRadius });
+            }
+        }
+
+        // creating sinks at the bottom as rectnagles
+        const sinkWidth = 36;
+        const NUM_SINKS = 15;
+        for(let i = 0 ; i < NUM_SINKS ; i++) {
+            const x = WIDTH / 2  + (i - 7.5) * (sinkWidth) + obstacleRadius;
+            const y = HEIGHT - 240;
+            const width = sinkWidth;
+            const height = width;
+            sinks.push({ x, y, width, height });
+        }
+
     </script>
 </body>
 </html>
