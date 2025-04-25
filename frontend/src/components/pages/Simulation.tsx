@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { BallManager } from "../game/classes/ballManager";
-import { WIDTH } from "../constants";
-import { pad } from "../padding";
+import { WIDTH } from "../game/constants";
+import { pad } from "../game/padding";
 
 
 export function Simulation() {
