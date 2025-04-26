@@ -2,8 +2,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Simulation } from "./pages/Simulation";
 import { Game } from "./pages/Game";
-import { Footer } from "./components/Footer";
-import { Navbar } from "./components/Navbar";
+import { Footer, Navbar } from "./components";
 import { Home } from "./pages/Home";
 
 function App() {

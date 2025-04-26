@@ -1,9 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { BallManager } from "../game/classes/BallManager";
-import { WIDTH } from "../game/constants";
-import { pad } from "../game/padding";
 
-export function Simulation() {
+import { useNavigate } from "react-router-dom";
+import { BallManager } from "../game/classes/BallManager";
+import { pad } from "../game/padding";
+import { WIDTH } from "../game/constants";
+
+export const Simulate = () => {
+  const navigate = useNavigate();
+
   const canvasRef = useRef<any>();
   let [outputs, setOutputs] = useState<{ [key: number]: number[] }>({
     0: [],
@@ -57,13 +61,8 @@ export function Simulation() {
   }, [canvasRef]);
 
   return (
-    <div className="flex flex-col lg:flex-row  items-center justify-between h-screen">
-      <div className="flex mx-16 flex-col justify-center pt-10">
-        {JSON.stringify(outputs, null, 2)}
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <canvas ref={canvasRef} width="800" height="800"></canvas>
-      </div>
+    <div className="flex flex-col items-center justify-center">
+      <canvas ref={canvasRef} width="800" height="800"></canvas>
     </div>
   );
-}
+};
