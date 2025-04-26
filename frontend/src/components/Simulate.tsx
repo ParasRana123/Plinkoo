@@ -34,6 +34,7 @@ export const Simulate = () => {
     let i = 0;
     while (1) {
       i++;
+
       ballManager.addBall(pad(WIDTH / 2 + 20 * (Math.random() - 0.5)));
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
