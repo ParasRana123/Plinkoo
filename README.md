@@ -4,7 +4,7 @@ A browser-based gambling game inspired by **Stake.com's Plinko**, where users dr
 
 ## Gameplay Overview
 
-- Click "Drop Ball" to start.
+- Click `Drop Ball` to start.
 - The ball travels downward, bouncing off pegs using realistic physics and collision mechanics.
 - It lands in one of the final multipliers at the bottom.
 - Your `winnings = Bet × Multiplier` from the slot where the ball lands.
