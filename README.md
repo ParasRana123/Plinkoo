@@ -38,7 +38,7 @@ A browser-based gambling game inspired by **Stake.com's Plinko**, where users dr
 │   │    ├── utils/
 │   │    └── App.tsx
 ├── version-1             # Basic version of the application
-└── README.md
+└── README.md             # README.md file
 ```
 
 ## Installation
@@ -47,7 +47,7 @@ A browser-based gambling game inspired by **Stake.com's Plinko**, where users dr
 
 ```bash
 git clone [repository-url]
-cd face
+cd Plinkoo
 ```
 
 2. **Install the backend dependencies**
@@ -78,7 +78,7 @@ cd frontend
 npm run dev
 ```
 
-6. **Additionally you can also use the HTML version of this application by nacigating to `version-1`**
+6. **Additionally you can also use the HTML version of this application by navigating to `version-1`**
 
 ```bash
 cd vesrion-1
