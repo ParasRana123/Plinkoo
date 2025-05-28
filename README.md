@@ -81,7 +81,7 @@ npm run dev
 6. **Additionally you can also use the HTML version of this application by navigating to `version-1`**
 
 ```bash
-cd vesrion-1
+cd version-1
 start index.html
 ```
 
