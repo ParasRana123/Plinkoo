@@ -50,55 +50,40 @@ git clone [repository-url]
 cd face
 ```
 
-2. **Create and activate python virtual environment**
+2. **Install the backend dependencies**
 
 ```bash
-conda create -p venv python==3.8.0 -y
-activate venv/
+cd backend
+npm install
 ```
 
-3. **Install all the requirements necessary for this project**
+3. **Install the frontend depedencies**
 
 ```bash
-pip install -r requirements.txt
+cd frontend
+npm install
 ```
 
-4. **Install the Jupyter Notebook**
+4. **Start the backend server**
 
 ```bash
-pip install notebook
+cd backend
+npm run dev
 ```
 
-5. **Run the `feature_extractor1.ipynb` to make `filenames.pkl`**
+5. **Start the frontend application**
 
 ```bash
-jupyter nbconvert --to notebook --feature.extractor1.ipynb --inplace
+cd frontend
+npm run dev
 ```
 
-6. **Then run the `feature_extractor.ipynb` to make `embedding.pkl`**
+6. **Additionally you can also use the HTML version of this application by nacigating to `version-1`**
 
 ```bash
-jupyter nbconvert --to notebook --feature.extractor.ipynb --inplace
+cd vesrion-1
+start index.html
 ```
-
-7. **Make the `uploads` and  `matches` inside `static` folder**
-
-```bash
-cd static
-mkdir uploads
-mkdir matches
-```
-
-8. **Start the flask application**
-
-```bash
-python main.py
-```
-
-   **You can also use the streamlit server (Optional)**
-   ```bash
-   streamlit run app.py
-   ```
 
 ## Contributing
 
