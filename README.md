@@ -26,23 +26,22 @@ A browser-based gambling game inspired by **Stake.com's Plinko**, where users dr
 ## Project Structure
 
 ```bash
-├── static/            
-│   ├── css/        # All CSS stylings in this file
-│   ├── uploads/    # Contains user Uploaded images
-│   └── matches/    # Matched images for the user uplaoded images
-├── templates/
-│   └── index.html  # Contains all the frontend HTML code
-├── main.py         # Flask backend code
-├── app.py          # Streamlit backend code
-├── feature_extractor1.ipynb   # Useful for making filenames.pkl
-├── feature_extractor.ipynb    # Useful for making embedding.pkl
-├── requirements.txt           # Contains all the requirements
+├── backend/              # All backend logic here     
+│   ├── src/        
+│   │    ├── index.ts     
+│   │    └── outcomes.ts   
+├── frontend/             # All frontend logic here       
+│   ├── src/        
+│   │    ├── components/  
+│   │    ├── game/
+│   │    ├── pages/
+│   │    ├── utils/
+│   │    └── App.tsx
+├── version-1             # Basic version of the application
 └── README.md
 ```
 
 ## Installation
-
-> **Note**: Python Version greater than 3.7 needed.
 
 1. **Clone the Repository**
 
